@@ -1,24 +1,10 @@
-﻿using DesignPattern.Console.Command;
+﻿using DesignPattern.Console.NullObject;
 
-Calculator calculator = new Calculator();
+ProductRepository productRepository = new ProductRepository();
 
-calculator.ExecuteCommand(new AddCommand(20));
-Console.WriteLine(calculator.CurrentValue);
+IEntity entity =  productRepository.First(-1);
 
-calculator.ExecuteCommand(new SubtractCommand(10));
-Console.WriteLine(calculator.CurrentValue);
 
-calculator.ExecuteCommand(new MultiplyCommand(5));
-Console.WriteLine(calculator.CurrentValue);
-
-calculator.Undo();
-Console.WriteLine(calculator.CurrentValue);
-
-calculator.Undo();
-Console.WriteLine(calculator.CurrentValue);
-
-calculator.Undo();
-Console.WriteLine(calculator.CurrentValue);
-
+Console.WriteLine(entity.Id);
 
 Console.WriteLine();
